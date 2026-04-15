@@ -8,7 +8,7 @@ import { DomainSelector } from '@/components/features/DomainSelector';
 import { MockTimer } from '@/components/features/MockTimer';
 import { FeedbackPanel } from '@/components/features/FeedbackPanel';
 import { Difficulty, EvaluationResult } from '@/types';
-import { Loader2, Mic, Play, SkipForward, Trophy } from 'lucide-react';
+import { Loader2, FileText, Play, SkipForward, Trophy } from 'lucide-react';
 
 interface MockState {
   status: 'idle' | 'active' | 'evaluating' | 'reviewing' | 'complete';
@@ -218,7 +218,7 @@ export default function MockPage() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Mic className="h-5 w-5" /> Configure Your Interview
+              <FileText className="h-5 w-5" /> Configure Your Interview
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">

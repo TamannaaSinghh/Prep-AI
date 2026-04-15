@@ -7,7 +7,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { QuestionSessionSummary, InterviewSessionSummary, VoiceInterviewSessionSummary } from '@/types';
-import { BookOpen, Mic, AudioLines, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
+import { BookOpen, FileText, AudioLines, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function HistoryPage() {
   const [questionSessions, setQuestionSessions] = useState<QuestionSessionSummary[]>([]);
@@ -90,7 +90,7 @@ export default function HistoryPage() {
             <BookOpen className="h-4 w-4" /> Practice Sessions
           </TabsTrigger>
           <TabsTrigger value="interviews" className="gap-2">
-            <Mic className="h-4 w-4" /> Mock Interviews
+            <FileText className="h-4 w-4" /> Mock Interviews
           </TabsTrigger>
           <TabsTrigger value="voice" className="gap-2">
             <AudioLines className="h-4 w-4" /> Voice Interviews

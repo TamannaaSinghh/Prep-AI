@@ -50,6 +50,16 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        // Learnify soft-UI shadows
+        soft: "0 4px 20px rgba(0, 0, 0, 0.05)",
+        "soft-md": "0 6px 24px rgba(0, 0, 0, 0.07)",
+        "soft-lg": "0 12px 32px rgba(108, 76, 241, 0.14)",
+        pill: "0 2px 8px rgba(108, 76, 241, 0.18)",
+      },
+      transitionTimingFunction: {
+        soft: "cubic-bezier(0.4, 0, 0.2, 1)",
+      },
     },
   },
   plugins: [tailwindcssAnimate],

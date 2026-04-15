@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { connectDB } from '@/lib/mongodb';
 import VoiceInterviewSession from '@/models/VoiceInterviewSession';
+import { recordActivity } from '@/lib/userProgress';
 
 export async function GET() {
   const session = await getServerSession(authOptions);
@@ -61,6 +62,11 @@ export async function POST(req: NextRequest) {
       evaluation: body.evaluation,
       durationSeconds: body.durationSeconds,
     });
+
+    // Non-blocking: activity tracking failure must not fail the save.
+    recordActivity(userId).catch((e) =>
+      console.error('recordActivity failed (voice):', e?.message || e)
+    );
 
     return NextResponse.json({ id: saved._id.toString() });
   } catch (error: any) {

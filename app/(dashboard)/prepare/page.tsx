@@ -1,13 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { DomainSelector } from '@/components/features/DomainSelector';
 import { QuestionCard } from '@/components/features/QuestionCard';
+import {
+  YouTubeRecommendation,
+  YouTubeVideoData,
+} from '@/components/features/YouTubeRecommendation';
+import { DoubtChatbot } from '@/components/features/DoubtChatbot';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Difficulty, Question } from '@/types';
-import { Loader2, Sparkles } from 'lucide-react';
+import { Loader2, Sparkles, Briefcase } from 'lucide-react';
 
 export default function PreparePage() {
   const [domain, setDomain] = useState('');
@@ -15,22 +21,83 @@ export default function PreparePage() {
   const [subtopic, setSubtopic] = useState('');
   const [difficulty, setDifficulty] = useState<Difficulty>('intermediate');
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [videos, setVideos] = useState<YouTubeVideoData[]>([]);
+  const [videoLoading, setVideoLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState('');
+  // Target role (from dashboard) is auto-pulled so question gen + chatbot
+  // can tune to what the student is interviewing for.
+  const [interviewRole, setInterviewRole] = useState<string | null>(null);
 
   const canGenerate = domain.trim() && topic.trim() && difficulty;
 
   // Store the last used params so "Load More" works even if selectors change
-  const [lastParams, setLastParams] = useState<{ domain: string; topic: string; difficulty: string } | null>(null);
+  const [lastParams, setLastParams] = useState<{
+    domain: string;
+    topic: string;
+    subtopic?: string;
+    difficulty: string;
+    role?: string;
+  } | null>(null);
+
+  useEffect(() => {
+    async function fetchRole() {
+      try {
+        const res = await fetch('/api/user/progress');
+        if (res.ok) {
+          const data = await res.json();
+          setInterviewRole(data.interviewRole ?? null);
+        }
+      } catch {
+        // Silent — role is optional context.
+      }
+    }
+    fetchRole();
+  }, []);
+
+  async function fetchTopVideos(params: {
+    domain: string;
+    topic: string;
+    subtopic?: string;
+  }) {
+    setVideoLoading(true);
+    setVideos([]);
+    try {
+      const url = new URL('/api/youtube/search', window.location.origin);
+      url.searchParams.set('domain', params.domain);
+      url.searchParams.set('topic', params.topic);
+      if (params.subtopic) url.searchParams.set('subtopic', params.subtopic);
+
+      const res = await fetch(url.toString());
+      if (res.ok) {
+        const data = await res.json();
+        setVideos(Array.isArray(data.videos) ? data.videos : []);
+      }
+      // Silent fail — videos are a bonus, not critical.
+    } catch {
+      // ignore
+    } finally {
+      setVideoLoading(false);
+    }
+  }
 
   async function handleGenerate() {
     if (!canGenerate) return;
     setLoading(true);
     setError('');
     setQuestions([]);
-    const params = { domain: domain.trim(), topic: topic.trim(), subtopic: subtopic.trim() || undefined, difficulty };
+    const params = {
+      domain: domain.trim(),
+      topic: topic.trim(),
+      subtopic: subtopic.trim() || undefined,
+      difficulty,
+      role: interviewRole || undefined,
+    };
     setLastParams(params);
+
+    // Kick off the YouTube fetch in parallel — it never blocks question gen.
+    fetchTopVideos({ domain: params.domain, topic: params.topic, subtopic: params.subtopic });
 
     try {
       const res = await fetch('/api/questions', {
@@ -114,6 +181,18 @@ export default function PreparePage() {
         <p className="text-muted-foreground mt-1">
           Generate AI-powered interview questions tailored to your needs
         </p>
+        {interviewRole && (
+          <div className="mt-3">
+            <Badge
+              variant="secondary"
+              className="gap-1.5 bg-accent text-primary border-primary/20"
+            >
+              <Briefcase className="h-3 w-3" />
+              Targeting&nbsp;
+              <span className="font-semibold">{interviewRole}</span>
+            </Badge>
+          </div>
+        )}
       </div>
 
       <Card>
@@ -170,6 +249,10 @@ export default function PreparePage() {
         </div>
       )}
 
+      {(videoLoading || videos.length > 0) && (
+        <YouTubeRecommendation videos={videos} loading={videoLoading} />
+      )}
+
       {!loading && questions.length > 0 && (
         <div>
           <h2 className="text-xl font-semibold mb-4">
@@ -217,6 +300,17 @@ export default function PreparePage() {
           </div>
         </div>
       )}
+
+      {/* Floating doubt chatbot — context-aware based on current selectors + target role */}
+      <DoubtChatbot
+        context={{
+          domain: domain.trim() || undefined,
+          topic: topic.trim() || undefined,
+          subtopic: subtopic.trim() || undefined,
+          difficulty,
+          role: interviewRole ?? undefined,
+        }}
+      />
     </div>
   );
 }

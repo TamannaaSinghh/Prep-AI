@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { connectDB } from '@/lib/mongodb';
 import InterviewSession from '@/models/InterviewSession';
+import { recordActivity } from '@/lib/userProgress';
 
 export async function GET() {
   const session = await getServerSession(authOptions);
@@ -56,6 +57,11 @@ export async function POST(req: NextRequest) {
       userId,
       ...body,
     });
+
+    // Non-blocking: activity tracking failure must not fail the save.
+    recordActivity(userId).catch((e) =>
+      console.error('recordActivity failed (interviews):', e?.message || e)
+    );
 
     return NextResponse.json({ id: saved._id.toString() });
   } catch (error: any) {

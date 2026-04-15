@@ -4,6 +4,7 @@ import { authOptions } from '@/lib/auth';
 import { connectDB } from '@/lib/mongodb';
 import QuestionSession from '@/models/QuestionSession';
 import InterviewSession from '@/models/InterviewSession';
+import VoiceInterviewSession from '@/models/VoiceInterviewSession';
 
 export async function GET() {
   const session = await getServerSession(authOptions);
@@ -14,14 +15,16 @@ export async function GET() {
   try {
     await connectDB();
 
-    const [questionSessions, interviewSessions] = await Promise.all([
+    const [questionSessions, interviewSessions, voiceCount] = await Promise.all([
       QuestionSession.find({ userId }).select('domain topic subtopic createdAt').lean(),
       InterviewSession.find({ userId }).select('domain topic subtopic totalScore maxScore completedAt').sort({ completedAt: 1 }).lean(),
+      VoiceInterviewSession.countDocuments({ userId }),
     ]);
 
     const topicsCovered = Array.from(new Set(questionSessions.map((s: any) => s.domain)));
     const totalSessions = questionSessions.length;
     const totalInterviews = interviewSessions.length;
+    const totalVoiceInterviews = voiceCount;
 
     let averageScore = 0;
     if (totalInterviews > 0) {
@@ -51,6 +54,7 @@ export async function GET() {
       topicsCovered,
       totalSessions,
       totalInterviews,
+      totalVoiceInterviews,
       averageScore: Math.round(averageScore * 100) / 100,
       scoreHistory,
       domainBreakdown,

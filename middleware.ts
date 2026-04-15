@@ -8,6 +8,5 @@ export const config = {
     '/voice/:path*',
     '/history/:path*',
     '/bookmarks/:path*',
-    '/progress/:path*',
   ],
 };

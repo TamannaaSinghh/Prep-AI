@@ -4,12 +4,13 @@ import { authOptions } from '@/lib/auth';
 import { generateQuestions } from '@/lib/groq';
 import { connectDB } from '@/lib/mongodb';
 import QuestionSession from '@/models/QuestionSession';
+import { recordActivity } from '@/lib/userProgress';
 
 export async function POST(req: NextRequest) {
   const session = await getServerSession(authOptions);
   if (!session?.user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-  const { domain, topic, subtopic, difficulty, count = 10 } = await req.json();
+  const { domain, topic, subtopic, difficulty, count = 10, role } = await req.json();
 
   if (!domain || !topic || !difficulty) {
     return NextResponse.json({ error: 'domain, topic, and difficulty are required' }, { status: 400 });
@@ -18,7 +19,14 @@ export async function POST(req: NextRequest) {
   // 1. Generate questions via AI
   let questions;
   try {
-    questions = await generateQuestions({ domain, topic, subtopic: subtopic || undefined, difficulty, count });
+    questions = await generateQuestions({
+      domain,
+      topic,
+      subtopic: subtopic || undefined,
+      difficulty,
+      count,
+      role: typeof role === 'string' && role.trim() ? role.trim().slice(0, 120) : undefined,
+    });
   } catch (error: any) {
     if (error?.status === 429) {
       return NextResponse.json({ error: 'Rate limit exceeded. Please wait a moment.' }, { status: 429 });
@@ -52,6 +60,10 @@ export async function POST(req: NextRequest) {
         questions,
       });
       sessionId = saved._id;
+      // Non-blocking: activity tracking failure must not fail the save.
+      recordActivity(userId).catch((e) =>
+        console.error('recordActivity failed (questions):', e?.message || e)
+      );
     } catch (error: any) {
       console.error('DB save error:', error?.message || error);
     }

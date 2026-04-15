@@ -3,49 +3,51 @@
 @tailwind utilities;
 
 @layer base {
+  /* ─── Learnify Design System (Light) ─── */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --background: 225 40% 98%;          /* #F8F9FC */
+    --foreground: 215 28% 17%;          /* #1F2937 */
+    --card: 0 0% 100%;                  /* #FFFFFF */
+    --card-foreground: 215 28% 17%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    --popover-foreground: 215 28% 17%;
+    --primary: 252 85% 62%;             /* #6C4CF1 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 252 100% 97%;          /* #F3F0FF */
+    --secondary-foreground: 252 60% 40%;
+    --muted: 220 20% 96%;
+    --muted-foreground: 220 9% 46%;     /* #6B7280 */
+    --accent: 251 100% 95%;             /* #E9E4FF */
+    --accent-foreground: 252 85% 58%;
+    --destructive: 0 84% 60%;           /* #EF4444 */
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;              /* #E5E7EB */
+    --input: 220 13% 91%;
+    --ring: 252 85% 62%;
+    --radius: 0.625rem;                 /* 10px */
   }
 
+  /* ─── Learnify Design System (Dark) ─── */
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --background: 222 47% 11%;          /* #0F172A */
+    --foreground: 220 14% 91%;          /* #E5E7EB */
+    --card: 217 33% 17%;                /* #1E293B */
+    --card-foreground: 220 14% 91%;
+    --popover: 217 33% 17%;
+    --popover-foreground: 220 14% 91%;
+    --primary: 252 90% 72%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 33% 22%;
+    --secondary-foreground: 220 14% 91%;
+    --muted: 217 33% 22%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 252 40% 28%;
+    --accent-foreground: 252 90% 88%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 33% 24%;
+    --input: 217 33% 24%;
+    --ring: 252 90% 72%;
   }
 }
 
