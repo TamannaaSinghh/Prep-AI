@@ -159,7 +159,7 @@ export function ActivityCalendar({
             cellClass += ' text-muted-foreground/40 border-transparent';
           } else if (active) {
             cellClass +=
-              ' bg-gradient-to-br from-primary to-[#9F7AEA] text-white border-transparent shadow-pill';
+              ' bg-primary text-white border-transparent shadow-pill';
           } else {
             cellClass += ' border-border text-foreground/70 hover:bg-accent/40';
           }
@@ -185,7 +185,7 @@ export function ActivityCalendar({
       {/* Legend */}
       <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[10px] text-muted-foreground pt-1">
         <span className="inline-flex items-center gap-1">
-          <span className="h-2.5 w-2.5 rounded-sm bg-gradient-to-br from-primary to-[#9F7AEA]" />
+          <span className="h-2.5 w-2.5 rounded-sm bg-primary" />
           Active
         </span>
         <span className="inline-flex items-center gap-1">

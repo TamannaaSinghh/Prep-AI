@@ -187,9 +187,7 @@ export default function DashboardPage() {
       </section>
 
       {/* ── Hero banner ── */}
-      <section className="relative overflow-hidden rounded-2xl border bg-gradient-to-br from-primary/10 via-accent/40 to-card p-6 md:p-8 shadow-soft">
-        <div className="absolute -top-10 -right-10 h-52 w-52 rounded-full bg-primary/15 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-14 right-24 h-40 w-40 rounded-full bg-[#9F7AEA]/20 blur-3xl pointer-events-none" />
+      <section className="relative overflow-hidden rounded-2xl border bg-card p-6 md:p-8 shadow-soft">
 
         <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-5">
           <div className="space-y-2 max-w-2xl">
@@ -431,7 +429,7 @@ export default function DashboardPage() {
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {/* Practice */}
           <Link href="/prepare" className="group block">
-            <Card className="h-full bg-gradient-to-br from-primary/10 to-primary/5 hover:-translate-y-1 hover:shadow-soft-lg hover:border-primary/30">
+            <Card className="h-full bg-primary/5 hover:-translate-y-1 hover:shadow-soft-lg hover:border-primary/30">
               <CardContent className="p-6 space-y-4 h-full flex flex-col">
                 <div className="h-12 w-12 rounded-xl bg-primary/15 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <BookOpen className="h-5 w-5 text-primary" />
@@ -453,7 +451,7 @@ export default function DashboardPage() {
 
           {/* Mock Interview */}
           <Link href="/mock" className="group block">
-            <Card className="h-full bg-gradient-to-br from-pink-500/10 to-pink-500/5 hover:-translate-y-1 hover:shadow-soft-lg hover:border-pink-500/30">
+            <Card className="h-full bg-pink-500/5 hover:-translate-y-1 hover:shadow-soft-lg hover:border-pink-500/30">
               <CardContent className="p-6 space-y-4 h-full flex flex-col">
                 <div className="h-12 w-12 rounded-xl bg-pink-500/15 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <FileText className="h-5 w-5 text-pink-600" />
@@ -478,7 +476,7 @@ export default function DashboardPage() {
 
           {/* Voice Interview */}
           <Link href="/voice" className="group block">
-            <Card className="h-full bg-gradient-to-br from-[#9F7AEA]/15 to-[#9F7AEA]/5 border-[#9F7AEA]/20 hover:-translate-y-1 hover:shadow-soft-lg hover:border-[#9F7AEA]/40 relative overflow-hidden">
+            <Card className="h-full bg-[#9F7AEA]/10 border-[#9F7AEA]/20 hover:-translate-y-1 hover:shadow-soft-lg hover:border-[#9F7AEA]/40 relative overflow-hidden">
               <div className="absolute top-3 right-3">
                 <Badge className="text-[10px] uppercase tracking-wider gap-1 bg-[#9F7AEA] hover:bg-[#9F7AEA]/90">
                   <Sparkles className="h-3 w-3" /> New

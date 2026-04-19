@@ -119,9 +119,7 @@ export function InterviewCountdownCard({
   const hasAnything = !!(initialDate || initialRole);
 
   return (
-    <Card className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-accent/40 to-card border-primary/15">
-      <div className="absolute -top-10 -right-10 h-32 w-32 rounded-full bg-primary/15 blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-10 -left-6 h-24 w-24 rounded-full bg-[#9F7AEA]/20 blur-3xl pointer-events-none" />
+    <Card className="relative overflow-hidden bg-card border-primary/15">
 
       <CardContent className="relative p-5">
         <div className="flex items-start gap-4">

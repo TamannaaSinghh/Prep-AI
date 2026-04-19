@@ -64,7 +64,7 @@ export function QuestionCard({ question, index, onBookmark }: QuestionCardProps)
         </Button>
 
         {showExplanation && (
-          <div className="mt-3 rounded-2xl border bg-gradient-to-br from-accent/40 via-card to-primary/5 overflow-hidden">
+          <div className="mt-3 rounded-2xl border bg-accent/30 overflow-hidden">
             {/* Header bar */}
             <div className="flex items-center gap-2 px-5 py-2.5 border-b bg-card/50 backdrop-blur">
               <div className="h-7 w-7 rounded-lg bg-primary/15 flex items-center justify-center">

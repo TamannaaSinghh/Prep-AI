@@ -129,7 +129,7 @@ export function StreakCard({
 
           {/* Coin chip */}
           <div className="shrink-0 flex flex-col items-center gap-1">
-            <div className="relative h-11 w-11 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-pill">
+            <div className="relative h-11 w-11 rounded-2xl bg-amber-500 flex items-center justify-center shadow-pill">
               <Coins className="h-5 w-5 text-white" />
               {coins > 0 && (
                 <span className="absolute -top-1.5 -right-1.5 h-5 min-w-5 px-1 rounded-full bg-foreground text-background text-[10px] font-bold flex items-center justify-center ring-2 ring-card">

@@ -52,7 +52,6 @@ const FEATURES = [
     tint: 'bg-[#9F7AEA]/15',
     iconClass: 'text-[#7C5BE6]',
     badge: 'Popular',
-    gradient: 'from-purple-500/10 to-indigo-500/10',
   },
   {
     icon: MonitorPlay,
@@ -61,7 +60,6 @@ const FEATURES = [
     tint: 'bg-red-500/10',
     iconClass: 'text-red-500',
     badge: 'New',
-    gradient: 'from-red-500/10 to-pink-500/10',
   },
   {
     icon: Sparkles,
@@ -69,7 +67,6 @@ const FEATURES = [
     desc: 'Generate fresh, unique questions for every session — pick a domain, topic and difficulty and get instant AI-crafted problems.',
     tint: 'bg-primary/10',
     iconClass: 'text-primary',
-    gradient: 'from-primary/10 to-blue-500/10',
   },
   {
     icon: FileText,
@@ -77,7 +74,6 @@ const FEATURES = [
     desc: 'Simulate the real thing: 5 questions, a live timer per question, AI evaluation, and a scored summary at the end.',
     tint: 'bg-pink-500/10',
     iconClass: 'text-pink-600',
-    gradient: 'from-pink-500/10 to-rose-500/10',
   },
   {
     icon: BarChart3,
@@ -85,7 +81,6 @@ const FEATURES = [
     desc: 'Every answer gets a score, strengths, gaps, and a model answer — so you know exactly what to improve next.',
     tint: 'bg-green-500/10',
     iconClass: 'text-green-600',
-    gradient: 'from-green-500/10 to-emerald-500/10',
   },
   {
     icon: MessageCircle,
@@ -93,7 +88,6 @@ const FEATURES = [
     desc: 'Stuck on a concept? Ask the floating chatbot. It knows your current topic and gives crisp, context-aware explanations.',
     tint: 'bg-amber-500/10',
     iconClass: 'text-amber-600',
-    gradient: 'from-amber-500/10 to-yellow-500/10',
   },
   {
     icon: Bookmark,
@@ -101,7 +95,6 @@ const FEATURES = [
     desc: 'Save tricky questions for later. Build your own curated revision list with explanations attached.',
     tint: 'bg-cyan-500/10',
     iconClass: 'text-cyan-600',
-    gradient: 'from-cyan-500/10 to-teal-500/10',
   },
   {
     icon: TrendingUp,
@@ -109,7 +102,6 @@ const FEATURES = [
     desc: 'Visualize your improvement with score-over-time charts, activity calendar, streak tracking, and a domain coverage map.',
     tint: 'bg-indigo-500/10',
     iconClass: 'text-indigo-600',
-    gradient: 'from-indigo-500/10 to-violet-500/10',
   },
 ];
 
@@ -118,7 +110,7 @@ const STEPS = [
     icon: Target,
     step: '01',
     title: 'Pick your domain',
-    desc: 'Choose from 7 domains, 50+ topics, and three difficulty levels. Configure your session in seconds.',
+    desc: 'Type in any domain, any topic, any difficulty — there are no fixed lists. Configure your session in seconds.',
   },
   {
     icon: Rocket,
@@ -172,7 +164,7 @@ function VoiceWaveform() {
       {[1, 2, 3, 4, 5].map((i) => (
         <div
           key={i}
-          className="voice-bar w-[3px] rounded-full bg-gradient-to-t from-primary to-[#9F7AEA]"
+          className="voice-bar w-[3px] rounded-full bg-primary"
           style={{ height: '12px' }}
         />
       ))}
@@ -198,7 +190,7 @@ export default function LoginPage() {
       <nav className="sticky top-0 z-50 border-b bg-background/70 backdrop-blur-xl animate-fade-in-down">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-primary to-[#9F7AEA] flex items-center justify-center shadow-pill">
+            <div className="h-9 w-9 rounded-xl bg-primary flex items-center justify-center shadow-pill">
               <Brain className="h-5 w-5 text-white" />
             </div>
             <span className="text-xl font-bold tracking-tight">PrepAI</span>
@@ -238,7 +230,7 @@ export default function LoginPage() {
 
               <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.08] tracking-tight animate-fade-in-up delay-100">
                 Ace your next
-                <span className="block gradient-text animate-gradient py-1">
+                <span className="block text-primary py-1">
                   tech interview
                 </span>
                 with AI that listens.
@@ -290,14 +282,13 @@ export default function LoginPage() {
 
             {/* Right - Animated preview card */}
             <div className="relative hidden lg:block animate-fade-in-right delay-300">
-              <div className="absolute -inset-6 bg-gradient-to-br from-primary/15 via-[#9F7AEA]/15 to-accent/30 rounded-3xl blur-2xl animate-gradient" />
               <Card className="relative shadow-soft-lg animate-float-slow">
                 <CardContent className="p-0 overflow-hidden">
                   {/* Voice Interview Preview */}
-                  <div className="p-6 pb-4 bg-gradient-to-br from-[#9F7AEA]/5 to-primary/5">
+                  <div className="p-6 pb-4 bg-accent/30">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-3">
-                        <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-primary to-[#9F7AEA] flex items-center justify-center shadow-pill">
+                        <div className="h-10 w-10 rounded-xl bg-primary flex items-center justify-center shadow-pill">
                           <Headphones className="h-5 w-5 text-white" />
                         </div>
                         <div>
@@ -314,7 +305,7 @@ export default function LoginPage() {
                     {/* Simulated transcript */}
                     <div className="space-y-3 rounded-xl bg-card/80 border p-4">
                       <div className="flex gap-2.5">
-                        <div className="h-6 w-6 rounded-full bg-gradient-to-br from-primary to-[#9F7AEA] flex items-center justify-center shrink-0">
+                        <div className="h-6 w-6 rounded-full bg-primary flex items-center justify-center shrink-0">
                           <Brain className="h-3 w-3 text-white" />
                         </div>
                         <p className="text-xs text-muted-foreground leading-relaxed">
@@ -352,7 +343,7 @@ export default function LoginPage() {
                   </div>
 
                   {/* YouTube mini preview */}
-                  <div className="p-4 border-t bg-gradient-to-r from-red-500/3 to-card">
+                  <div className="p-4 border-t bg-card">
                     <div className="flex items-center gap-3">
                       <div className="h-8 w-8 rounded-lg bg-red-500/10 flex items-center justify-center shrink-0">
                         <YouTubeIcon className="h-4 w-4 text-red-500" />
@@ -376,10 +367,7 @@ export default function LoginPage() {
 
       {/* ───── Voice Interview Showcase ───── */}
       <section id="voice-interview" className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#9F7AEA]/5 via-background to-primary/5" />
-          <div className="absolute top-[20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[#9F7AEA]/5 blur-3xl animate-blob" />
-        </div>
+        <div className="absolute inset-0 -z-10 bg-background" />
         <div className="max-w-6xl mx-auto px-6 py-24">
           <div className="text-center mb-16 space-y-4">
             <Badge variant="secondary" className="mx-auto bg-[#9F7AEA]/10 text-[#7C5BE6] border-[#9F7AEA]/20">
@@ -398,9 +386,9 @@ export default function LoginPage() {
             <Card className="shadow-soft-lg border-[#9F7AEA]/20 overflow-hidden">
               <CardContent className="p-0">
                 {/* Header */}
-                <div className="flex items-center justify-between px-5 py-3 border-b bg-gradient-to-r from-[#9F7AEA]/10 via-accent/20 to-card">
+                <div className="flex items-center justify-between px-5 py-3 border-b bg-card">
                   <div className="flex items-center gap-2.5">
-                    <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-[#9F7AEA] flex items-center justify-center">
+                    <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
                       <AudioLines className="h-4 w-4 text-white" />
                     </div>
                     <div>
@@ -417,7 +405,7 @@ export default function LoginPage() {
                 {/* Conversation */}
                 <div className="p-5 space-y-4 min-h-[240px]">
                   <div className="flex gap-2.5">
-                    <div className="h-7 w-7 rounded-full bg-gradient-to-br from-primary to-[#9F7AEA] flex items-center justify-center shrink-0">
+                    <div className="h-7 w-7 rounded-full bg-primary flex items-center justify-center shrink-0">
                       <Brain className="h-3.5 w-3.5 text-white" />
                     </div>
                     <div className="rounded-2xl rounded-tl-sm bg-accent/50 border px-3.5 py-2.5 max-w-[85%]">
@@ -432,7 +420,7 @@ export default function LoginPage() {
                   </div>
 
                   <div className="flex gap-2.5">
-                    <div className="h-7 w-7 rounded-full bg-gradient-to-br from-primary to-[#9F7AEA] flex items-center justify-center shrink-0">
+                    <div className="h-7 w-7 rounded-full bg-primary flex items-center justify-center shrink-0">
                       <Brain className="h-3.5 w-3.5 text-white" />
                     </div>
                     <div className="rounded-2xl rounded-tl-sm bg-accent/50 border px-3.5 py-2.5 max-w-[85%]">
@@ -444,7 +432,7 @@ export default function LoginPage() {
                 {/* Push to talk bar */}
                 <div className="border-t px-5 py-4 bg-muted/30 flex items-center justify-center gap-4">
                   <VoiceWaveform />
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-[#9F7AEA] flex items-center justify-center shadow-pill cursor-default">
+                  <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center shadow-pill cursor-default">
                     <Mic className="h-5 w-5 text-white" />
                   </div>
                   <div className="text-xs text-muted-foreground">
@@ -494,7 +482,7 @@ export default function LoginPage() {
               <Button
                 size="lg"
                 onClick={handleSignIn}
-                className="h-12 px-8 text-base gap-2 bg-gradient-to-r from-primary to-[#9F7AEA] shadow-soft-lg hover:shadow-pill group"
+                className="h-12 px-8 text-base gap-2 bg-primary shadow-soft-lg hover:shadow-pill group"
               >
                 <Mic className="h-4 w-4" />
                 Try Voice Interview
@@ -516,7 +504,7 @@ export default function LoginPage() {
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
                 Learn from the best
-                <span className="gradient-text"> YouTube tutorials</span>
+                <span className="text-red-500"> YouTube tutorials</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed text-lg">
                 Every topic you practice comes with curated YouTube video recommendations.
@@ -538,7 +526,7 @@ export default function LoginPage() {
               <Button
                 size="lg"
                 onClick={handleSignIn}
-                className="h-12 px-8 text-base gap-2 bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 shadow-soft-lg group"
+                className="h-12 px-8 text-base gap-2 bg-red-500 hover:bg-red-600 text-white shadow-soft-lg group"
               >
                 <Play className="h-4 w-4 fill-white" />
                 Start Learning
@@ -551,7 +539,7 @@ export default function LoginPage() {
               <Card className="shadow-soft-lg overflow-hidden border-red-500/10">
                 <CardContent className="p-0">
                   {/* Header */}
-                  <div className="flex items-center gap-2 px-4 py-2.5 border-b bg-gradient-to-r from-red-500/5 via-accent/20 to-card">
+                  <div className="flex items-center gap-2 px-4 py-2.5 border-b bg-card">
                     <div className="h-6 w-6 rounded-md bg-red-500/15 flex items-center justify-center">
                       <YouTubeIcon className="h-3.5 w-3.5 text-red-500" />
                     </div>
@@ -561,7 +549,7 @@ export default function LoginPage() {
                   </div>
 
                   {/* Fake player */}
-                  <div className="relative aspect-video bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center">
+                  <div className="relative aspect-video bg-gray-900 flex items-center justify-center">
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-center space-y-3">
                         <div className="h-14 w-14 rounded-full bg-red-600 text-white flex items-center justify-center shadow-soft-lg mx-auto">
@@ -579,7 +567,7 @@ export default function LoginPage() {
                   <div className="p-3 bg-muted/30 grid grid-cols-3 gap-2">
                     {['URL Shortener Design', 'Load Balancer Deep Dive', 'Database Sharding'].map((title, i) => (
                       <div key={i} className="rounded-lg overflow-hidden border bg-card hover:border-primary/30 transition-colors cursor-default">
-                        <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center">
+                        <div className="aspect-video bg-gray-800 flex items-center justify-center">
                           <Play className="h-4 w-4 text-white/60" />
                         </div>
                         <p className="text-[10px] font-medium p-1.5 truncate">{title}</p>
@@ -616,7 +604,7 @@ export default function LoginPage() {
               <CardContent className="p-5 space-y-3">
                 <div className="flex items-start justify-between">
                   <div
-                    className={`h-11 w-11 rounded-xl bg-gradient-to-br ${f.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                    className={`h-11 w-11 rounded-xl ${f.tint} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
                   >
                     <f.icon className={`h-5 w-5 ${f.iconClass}`} />
                   </div>
@@ -649,13 +637,13 @@ export default function LoginPage() {
 
           <div className="grid md:grid-cols-3 gap-8 relative">
             {/* Connector line */}
-            <div className="hidden md:block absolute top-10 left-[16%] right-[16%] h-px bg-gradient-to-r from-primary/30 via-[#9F7AEA]/30 to-primary/30" />
+            <div className="hidden md:block absolute top-10 left-[16%] right-[16%] h-px bg-border" />
 
             {STEPS.map((s, i) => (
               <div key={s.step} className="relative text-center space-y-5">
                 <div className="relative inline-flex items-center justify-center">
                   <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-xl" />
-                  <div className="relative h-16 w-16 rounded-2xl bg-gradient-to-br from-primary to-[#9F7AEA] text-primary-foreground flex items-center justify-center shadow-soft-lg">
+                  <div className="relative h-16 w-16 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center shadow-soft-lg">
                     <s.icon className="h-7 w-7" />
                   </div>
                   <div className="absolute -top-2 -right-2 h-7 w-7 rounded-full bg-card border-2 border-primary text-primary text-xs font-bold flex items-center justify-center shadow-soft">
@@ -683,7 +671,7 @@ export default function LoginPage() {
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
               Built for every student who
-              <span className="gradient-text">
+              <span className="text-primary">
                 {' '}deserves great prep
               </span>
             </h2>
@@ -787,12 +775,12 @@ export default function LoginPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {/* Voice Interview - Featured */}
             <Card className="relative overflow-hidden border-[#9F7AEA]/30 shadow-soft-md md:scale-105 md:-translate-y-2">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-[#9F7AEA]" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-primary" />
               <div className="absolute top-4 right-4">
-                <Badge className="bg-gradient-to-r from-primary to-[#9F7AEA] border-0">Most Popular</Badge>
+                <Badge className="bg-primary border-0">Most Popular</Badge>
               </div>
               <CardContent className="p-7 space-y-4">
-                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-[#9F7AEA]/20 to-primary/10 flex items-center justify-center">
+                <div className="h-12 w-12 rounded-xl bg-[#9F7AEA]/15 flex items-center justify-center">
                   <AudioLines className="h-6 w-6 text-[#7C5BE6]" />
                 </div>
                 <h3 className="text-lg font-semibold">Voice Interview</h3>
@@ -864,11 +852,7 @@ export default function LoginPage() {
 
       {/* ───── CTA ───── */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-accent/40 to-[#9F7AEA]/8" />
-          <div className="absolute bottom-0 left-[10%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-3xl animate-blob" />
-          <div className="absolute top-0 right-[10%] w-[35%] h-[35%] rounded-full bg-[#9F7AEA]/5 blur-3xl animate-blob delay-400" />
-        </div>
+        <div className="absolute inset-0 -z-10 bg-accent/40" />
         <div className="max-w-3xl mx-auto px-6 py-24 text-center space-y-7">
           <Badge variant="secondary" className="mx-auto bg-card text-primary border border-primary/20 shadow-soft">
             <Sparkles className="h-3 w-3 mr-1.5 text-primary" /> Ready when you are
@@ -877,7 +861,7 @@ export default function LoginPage() {
             Stop reading sample answers.
             <br />
             Start{' '}
-            <span className="gradient-text">
+            <span className="text-primary">
               practicing
             </span>{' '}
             today.
@@ -919,7 +903,7 @@ export default function LoginPage() {
         <div className="max-w-6xl mx-auto px-6 py-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2.5">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-[#9F7AEA] flex items-center justify-center">
+              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
                 <Brain className="h-4 w-4 text-white" />
               </div>
               <span className="font-semibold">PrepAI</span>

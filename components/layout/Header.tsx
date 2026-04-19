@@ -19,8 +19,8 @@ import {
 const navItems = [
   { href: '/dashboard', label: 'Dashboard',       icon: LayoutDashboard },
   { href: '/prepare',   label: 'Prepare',         icon: BookOpen },
-  { href: '/mock',      label: 'Mock Interview',  icon: FileText },
   { href: '/voice',     label: 'Voice Interview', icon: AudioLines },
+  { href: '/mock',      label: 'Mock Interview',  icon: FileText },
   { href: '/history',   label: 'History',         icon: History },
   { href: '/bookmarks', label: 'Bookmarks',       icon: Bookmark },
 ];
@@ -41,7 +41,7 @@ export function Header() {
           <Menu className="h-5 w-5" />
         </button>
         <Link href="/dashboard" className="md:hidden flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-[#9F7AEA] flex items-center justify-center">
+          <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
             <Brain className="h-4 w-4 text-white" />
           </div>
           <span className="font-bold">PrepAI</span>
@@ -58,7 +58,7 @@ export function Header() {
                   referrerPolicy="no-referrer"
                 />
               ) : (
-                <div className="h-8 w-8 rounded-full bg-gradient-to-br from-primary to-[#9F7AEA] text-white flex items-center justify-center text-xs font-bold">
+                <div className="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold">
                   {session.user.name?.charAt(0) ?? 'U'}
                 </div>
               )}
@@ -91,7 +91,7 @@ export function Header() {
           <div className="fixed inset-0 bg-foreground/40 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
           <div className="fixed inset-y-0 left-0 w-72 bg-card p-6 shadow-soft-lg">
             <div className="flex items-center gap-2.5 mb-8">
-              <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-primary to-[#9F7AEA] flex items-center justify-center shadow-pill">
+              <div className="h-9 w-9 rounded-xl bg-primary flex items-center justify-center shadow-pill">
                 <Brain className="h-5 w-5 text-white" />
               </div>
               <span className="text-xl font-bold tracking-tight">PrepAI</span>

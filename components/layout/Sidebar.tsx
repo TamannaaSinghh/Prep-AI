@@ -16,8 +16,8 @@ import {
 const navItems = [
   { href: '/dashboard', label: 'Dashboard',       icon: LayoutDashboard },
   { href: '/prepare',   label: 'Prepare',         icon: BookOpen },
-  { href: '/mock',      label: 'Mock Interview',  icon: FileText },
   { href: '/voice',     label: 'Voice Interview', icon: AudioLines },
+  { href: '/mock',      label: 'Mock Interview',  icon: FileText },
   { href: '/history',   label: 'History',         icon: History },
   { href: '/bookmarks', label: 'Bookmarks',       icon: Bookmark },
 ];
@@ -29,7 +29,7 @@ export function Sidebar() {
     <aside className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 z-50">
       <div className="flex flex-col flex-grow border-r bg-card pt-6 overflow-y-auto">
         <div className="flex items-center gap-2.5 px-6 mb-8">
-          <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-primary to-[#9F7AEA] flex items-center justify-center shadow-pill">
+          <div className="h-9 w-9 rounded-xl bg-primary flex items-center justify-center shadow-pill">
             <Brain className="h-5 w-5 text-white" />
           </div>
           <span className="text-xl font-bold tracking-tight">PrepAI</span>
@@ -63,7 +63,7 @@ export function Sidebar() {
           })}
         </nav>
         <div className="px-4 pb-6 pt-4 mt-auto">
-          <div className="rounded-2xl bg-gradient-to-br from-primary/10 via-accent to-primary/5 p-4 border border-primary/10">
+          <div className="rounded-2xl bg-accent p-4 border border-primary/10">
             <p className="text-xs font-semibold text-primary mb-1">Keep going ✨</p>
             <p className="text-xs text-muted-foreground leading-relaxed">
               Daily practice compounds — one session a day beats cramming.

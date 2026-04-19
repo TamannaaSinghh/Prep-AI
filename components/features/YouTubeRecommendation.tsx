@@ -133,7 +133,7 @@ export function YouTubeRecommendation({
     <Card className="overflow-hidden">
       <CardContent className="p-0">
         {/* Header bar */}
-        <div className="flex items-center justify-between gap-3 px-4 py-2 border-b bg-gradient-to-r from-red-500/5 via-accent/20 to-card">
+        <div className="flex items-center justify-between gap-3 px-4 py-2 border-b bg-card">
           <div className="flex items-center gap-2 min-w-0">
             <div className="h-6 w-6 rounded-md bg-red-500/15 flex items-center justify-center shrink-0">
               <YouTubeIcon className="h-3.5 w-3.5 text-red-500" />
@@ -179,7 +179,7 @@ export function YouTubeRecommendation({
                   loading="lazy"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-black/30" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="h-12 w-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-soft-lg transition-transform group-hover:scale-110">
                     <Play className="h-5 w-5 fill-current ml-0.5" />
