@@ -26,23 +26,12 @@ import {
   Mic,
   Play,
   MessageCircle,
-  Award,
   Headphones,
   MonitorPlay,
   Volume2,
 } from 'lucide-react';
 
 /* ───────── Static data ───────── */
-
-const DOMAINS = [
-  'DSA',
-  'System Design',
-  'JavaScript',
-  'React',
-  'DBMS',
-  'Operating Systems',
-  'Networking',
-];
 
 const FEATURES = [
   {
@@ -124,13 +113,6 @@ const STEPS = [
     title: 'Review & improve',
     desc: 'Get structured feedback, watch YouTube tutorials, bookmark weak spots, and watch your scores climb.',
   },
-];
-
-const STATS = [
-  { value: '7', label: 'Domains', icon: BookOpen },
-  { value: '50+', label: 'Topics', icon: Target },
-  { value: '3', label: 'Interview Modes', icon: Mic },
-  { value: '100%', label: 'Free Forever', icon: Award },
 ];
 
 /* ───────── Google icon SVG ───────── */
