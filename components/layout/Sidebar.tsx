@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -10,7 +11,6 @@ import {
   AudioLines,
   History,
   Bookmark,
-  Brain,
 } from 'lucide-react';
 
 const navItems = [
@@ -27,12 +27,16 @@ export function Sidebar() {
 
   return (
     <aside className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 z-50">
-      <div className="flex flex-col flex-grow border-r bg-card pt-6 overflow-y-auto">
-        <div className="flex items-center gap-2.5 px-6 mb-8">
-          <div className="h-9 w-9 rounded-xl bg-primary flex items-center justify-center shadow-pill">
-            <Brain className="h-5 w-5 text-white" />
-          </div>
-          <span className="text-xl font-bold tracking-tight">PrepAI</span>
+      <div className="flex flex-col flex-grow border-r bg-card pt-2 overflow-y-auto">
+        <div className="flex items-center justify-center px-10 mb-4">
+          <Image
+            src="/main-logo.png"
+            alt="Interview Prep AI"
+            width={600}
+            height={400}
+            priority
+            className="h-13 w-auto"
+          />
         </div>
         <nav className="flex-1 px-3 space-y-1">
           {navItems.map((item) => {

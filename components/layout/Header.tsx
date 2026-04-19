@@ -2,7 +2,8 @@
 
 import { useSession, signOut } from 'next-auth/react';
 import { Button } from '@/components/ui/button';
-import { Brain, LogOut, Menu } from 'lucide-react';
+import { LogOut, Menu } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -40,11 +41,15 @@ export function Header() {
         >
           <Menu className="h-5 w-5" />
         </button>
-        <Link href="/dashboard" className="md:hidden flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-            <Brain className="h-4 w-4 text-white" />
-          </div>
-          <span className="font-bold">PrepAI</span>
+        <Link href="/dashboard" className="md:hidden flex items-center">
+          <Image
+            src="/main-logo.png"
+            alt="Interview Prep AI"
+            width={220}
+            height={64}
+            priority
+            className="h-12 w-auto"
+          />
         </Link>
         <div className="flex-1" />
         {session?.user && (
@@ -90,11 +95,14 @@ export function Header() {
         <div className="fixed inset-0 z-50 md:hidden">
           <div className="fixed inset-0 bg-foreground/40 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
           <div className="fixed inset-y-0 left-0 w-72 bg-card p-6 shadow-soft-lg">
-            <div className="flex items-center gap-2.5 mb-8">
-              <div className="h-9 w-9 rounded-xl bg-primary flex items-center justify-center shadow-pill">
-                <Brain className="h-5 w-5 text-white" />
-              </div>
-              <span className="text-xl font-bold tracking-tight">PrepAI</span>
+            <div className="flex items-center mb-8">
+              <Image
+                src="/main-logo.png"
+                alt="Interview Prep AI"
+                width={260}
+                height={72}
+                className="h-16 w-auto"
+              />
             </div>
             <nav className="space-y-1">
               {navItems.map((item) => {

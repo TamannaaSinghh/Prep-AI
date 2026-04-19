@@ -1,6 +1,7 @@
 'use client';
 
 import { signIn, useSession } from 'next-auth/react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
@@ -170,12 +171,16 @@ export default function LoginPage() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* ───── Navbar ───── */}
       <nav className="sticky top-0 z-50 border-b bg-background/70 backdrop-blur-xl animate-fade-in-down">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="h-9 w-9 rounded-xl bg-primary flex items-center justify-center shadow-pill">
-              <Brain className="h-5 w-5 text-white" />
-            </div>
-            <span className="text-xl font-bold tracking-tight">PrepAI</span>
+        <div className="max-w-6xl mx-auto px-6 h-[5.5rem] flex items-center justify-between">
+          <div className="flex items-center">
+            <Image
+              src="/main-logo.png"
+              alt="Interview Prep AI"
+              width={370}
+              height={104}
+              priority
+              className="h-15 w-auto"
+            />
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#features" className="hover:text-foreground transition-colors">Features</a>
@@ -884,11 +889,14 @@ export default function LoginPage() {
       <footer className="border-t bg-card">
         <div className="max-w-6xl mx-auto px-6 py-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-2.5">
-              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                <Brain className="h-4 w-4 text-white" />
-              </div>
-              <span className="font-semibold">PrepAI</span>
+            <div className="flex items-center gap-3">
+              <Image
+                src="/main-logo.png"
+                alt="Interview Prep AI"
+                width={310}
+                height={88}
+                className="h-[4.75rem] w-auto"
+              />
               <span className="text-sm text-muted-foreground">
                 &middot; AI-powered interview readiness
               </span>
