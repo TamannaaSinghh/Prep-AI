@@ -889,32 +889,18 @@ export default function LoginPage() {
       <footer className="border-t bg-card">
         <div className="max-w-6xl mx-auto px-6 py-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center">
               <Image
                 src="/main-logo.png"
                 alt="Interview Prep AI"
-                width={310}
-                height={88}
-                className="h-[4.75rem] w-auto"
+                width={370}
+                height={104}
+                className="h-15 w-auto"
               />
-              <span className="text-sm text-muted-foreground">
-                &middot; AI-powered interview readiness
-              </span>
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
-              <span className="inline-flex items-center gap-1.5">
-                <AudioLines className="h-3.5 w-3.5 text-[#7C5BE6]" /> Voice Interviews
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <YouTubeIcon className="h-3.5 w-3.5 text-red-500" /> YouTube Integration
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <History className="h-3.5 w-3.5" /> Sessions saved
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <Zap className="h-3.5 w-3.5 text-primary" /> Groq &amp; LLaMA 3
-              </span>
-            </div>
+            <span className="text-sm text-muted-foreground">
+              Developed by Tamanna Singh
+            </span>
           </div>
         </div>
       </footer>
